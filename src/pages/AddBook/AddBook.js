@@ -1,51 +1,83 @@
 import React from 'react'
+import { usePostBook } from '../../queries/useGetBooks'
 import './AddBook.css'
 
-export const AddBook = () => {
-    return (
-        <div className="main">
-            <section className="signup">
-                <div className="container">
-                    <div className="signup-content">
-                        <div className="signup-form">
-                            <h2 className="form-title"> ADD BOOK </h2>
-                            <div className="register-form" id="register-form">
-                                <div className="form-group">
-                                    <label for="name"><i className="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="name" id="name" placeholder="Your Book Name"/>
-                                </div>
-                                <div className="form-group">
-                                    <label for="email"><i className="zmdi zmdi-email"></i></label>
-                                    <input type="email" name="email" id="email" placeholder="Your Email"/>
-                                </div>
-                                <div className="form-group">
-                                    <label for="pass"><i className="zmdi zmdi-lock"></i></label>
-                                    <input type="text" name="name" id="name" placeholder="Type"/>
-                                </div>
-                                <div className="form-group">
-                                    <label for="re-pass"><i className="zmdi zmdi-lock-outline"></i></label>
-                                    <input type="text" name="name" id="name" placeholder="Description"/>
-                                </div>
-                                <div className="form-group">
-                                    <input type="checkbox" name="agree-term" id="agree-term" className="agree-term" />
-                                    <label for="agree-term" className="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" className="term-service">Terms of service</a></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="signup-image">
-                            <figure><img src="images/signup-image.jpg" alt="sing up image" /></figure>
-                            <div className="upload-img">
-                                <form action="upload.php" method="post" enctype="multipart/form-data">
-                                    <input type="file" name="fileToUpload" id="fileToUpload"/>
-                                    <input type="submit" value="Upload Image" name="submit"/>
-                                </form>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </section>
+let imgPreview= ''
 
-    </div>
+export const AddBook = () => {
+    const {mutate: postBook} = usePostBook()
+    const [info, setInfo] = React.useState({
+        id:'',
+        name: '',
+        email: '',
+        password:'',
+        description: '',
+        phoneNumber: '',
+        imgUrl: '',
+        type: '',
+    })
+    const [imagePreview, setImagePreview] = React.useState({
+        file:'',
+        imagePreview: ''
+    })
+    const onHandlePostBtn = () => {
+        const information = {
+            ...info, 
+            imgUrl: imgPreview
+        }
+        console.log(information)
+        postBook(information)
+    }
+    const handleImageChange = (e) => {
+        e.preventDefault();
+    
+        let reader = new FileReader();
+        let file = e.target.files[0];
+    
+        reader.onloadend = () => {
+            imgPreview = reader.result
+          setImagePreview({
+            file: file,
+            imagePreviewUrl: reader.result
+          });
+        }
+    
+        reader.readAsDataURL(file)
+      }
+      console.log(imagePreview)
+    return (
+        <div className='add-product-container'>
+            <div className='add-product'>
+                <div class="form-outline mb-4">
+                    <input onChange={(e) => setInfo({...info, name: e.target.value})} type="text" id="form6Example4" class="form-control" />
+                    <label class="form-label" for="form6Example4">Name book</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input type="password" onChange={(e) => setInfo({...info, password: e.target.value})} id="form6Example4" class="form-control" />
+                    <label class="form-label" for="form6Example4">Password</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input onChange={(e) => setInfo({...info, email: e.target.value})} type="email" id="form6Example5" class="form-control" />
+                    <label class="form-label" for="form6Example5">Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <input onChange={(e) => setInfo({...info, phoneNumber: e.target.value})} type="number" id="form6Example6" class="form-control" />
+                    <label class="form-label" for="form6Example6">Phone</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <textarea onChange={(e) => setInfo({...info, description: e.target.value})} class="form-control" id="form6Example7" rows="4"></textarea>
+                    <label class="form-label" for="form6Example7">Description</label>
+                </div>
+                <div class="form-outline mb-4">
+                    <input onChange={(e) => handleImageChange(e)} type='file' />
+                    {imgPreview ? <img src={imgPreview} alt="preview" /> : null}
+                </div>
+                <button onClick={onHandlePostBtn} type="submit" class="btn btn-primary btn-block mb-4">Add book</button>
+            </div>
+        </div>
     )
 }

@@ -1,0 +1,16 @@
+
+.add-product-container {
+    background-color: #e3e3e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:40px;
+}
+.add-product {
+    width:50%;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 20px;
+
+}
