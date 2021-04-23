@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React from 'react'
 import { useQuery, useMutation } from 'react-query'
 import { DataContext } from '../context/Context'
 

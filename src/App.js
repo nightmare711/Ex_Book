@@ -83,6 +83,7 @@ function App() {
           </Route>
         </Switch>
         {info.name && info.description ? <ViewBook info={info} /> : null}
+        <Footer />
       </div>
     </DataContext.Provider>
   

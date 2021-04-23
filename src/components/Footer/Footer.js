@@ -13,14 +13,14 @@ export const Footer = () => {
     <div className="footer-left">
       <h3>Exchange<span>Book</span></h3>
       <p className="footer-links">
-        <a href="#">Home</a>
-        <a href="#">Blog</a>
-        <a href="#">Price</a>
-        <a href="#">About</a>
-        <a href="#">Faq</a>
-        <a href="#">Contact</a>
+        <a href="/">Home</a>
+        <a href="/">Blog</a>
+        <a href="/">Price</a>
+        <a href="/">About</a>
+        <a href="/">Faq</a>
+        <a href="/">Contact</a>
       </p>
-      <p className="footer-company-name"> HCMC University of Technical and Education © 2019</p>
+      <p className="footer-company-name"> HCMC University of Technical and Education © 2021</p>
     </div>
     <div className="footer-center">
       <div className='footer-label'>
@@ -32,7 +32,7 @@ export const Footer = () => {
         <p> 0839890931 </p>
       </div>
       <div className='footer-label'>
-      <FontAwesomeIcon className='icon' icon = {faEnvelope} />
+        <FontAwesomeIcon className='icon' icon = {faEnvelope} />
         <p>contact@exchangebook.com</p>
       </div>
     </div>
@@ -43,9 +43,9 @@ export const Footer = () => {
       </p>
     </div>
     <div className="footer-icon">
-      <a href="#" className='icon'><FontAwesomeIcon icon = {faFacebook} /></a>
-      <a href="#" className='icon'><FontAwesomeIcon icon = {faTwitter} /></a>
-      <a href="#" className='icon'><FontAwesomeIcon icon = {faInstagram} /></a>
+      <a href="/" className='icon'><FontAwesomeIcon icon = {faFacebook} /></a>
+      <a href="/" className='icon'><FontAwesomeIcon icon = {faTwitter} /></a>
+      <a href="/" className='icon'><FontAwesomeIcon icon = {faInstagram} /></a>
     </div>
   </footer>
 </div>

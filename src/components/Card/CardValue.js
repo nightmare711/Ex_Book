@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Button } from 'react-bootstrap'
 export const CardValue = ({title, description, href, imgUrl, email, phoneNumber, onClickViewBook, info, onClickUpdateBook}) => {
     return (
-        <div style={{marginLeft: '10px', marginTop:'20px'}}>
+        <div style={{marginLeft: '10px', marginTop:'20px', display:'flex', flexDirection:'column'}}>
             <Card style={{ width: '20rem', height: '100%' }}>
                 <Card.Img style={{height:'300px'}} variant="top" src={imgUrl} />
                 <Card.Body>
@@ -14,7 +14,9 @@ export const CardValue = ({title, description, href, imgUrl, email, phoneNumber,
                     </Card.Text>
                     <div style={{
                         display:'flex',
-                        flexDirection: 'row'
+                        flexDirection: 'row',
+                        justifyContent:'center',
+                        alignItems:'flex-end'
                     }}>
                         <Button onClick={() => onClickViewBook(info)} style={{marginTop: '20px', fontFamily: '"Comic Sans MS", "Comic Sans", cursive'}} variant="primary">View book</Button>
                         <Button onClick={() => onClickUpdateBook(info)} style={{marginTop: '20px',marginLeft: '20px', fontFamily: '"Comic Sans MS", "Comic Sans", cursive'}} variant="success">Update Book</Button>

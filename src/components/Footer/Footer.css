@@ -3,21 +3,7 @@ body {
   padding: 0;
 }
 
-.main {
-  position: fixed;
-  left: 100;
-  top: 100;
-  max-height: px;
-  background-color: #aad4ff;
-  color: rgb(156, 11, 11);
-  font-size: 50pt;
-  text-align: center;
-  line-height: 100px;
-  font: normal 100px "Cookie";
-}
 footer {
-  position: fixed;
-  bottom: 0;
 }
 .footer-distributed {
   background-color: #323435;
@@ -57,7 +43,12 @@ footer {
   margin: 20px 0 12px;
   padding: 0;
 }
-
+.footer-distributed .footer-links a {
+  margin-right: 15px;
+}
+.footer-distributed .footer-links a:hover {
+  text-decoration: underline;
+}
 .footer-distributed .footer-links a {
   display: inline-block;
   line-height: 8.1;
@@ -133,8 +124,9 @@ footer {
   margin-bottom: 20px;
 }
 
-.footer-distributed .footer-icons {
-  margin-top: 50px;
+.footer-distributed .footer-icon {
+  margin-top: 10px;
+
 }
 
 .footer-distributed .footer-icons a {
