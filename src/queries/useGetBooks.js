@@ -18,3 +18,13 @@ export const usePostBook = () => {
         .catch(err => console.log(err))
     })
 }
+export const useDeleteBook = () => {
+    return useMutation((id) => {
+        return fetch('http://localhost:5000/books/'+id, {
+            method: 'DELETE',
+            
+        }).then (res => res.json())
+        .then(result => console.log(result))
+        .catch(err => console.log(err))
+    })
+}
