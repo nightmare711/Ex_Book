@@ -9,11 +9,11 @@ export const ViewBook = ({info}) => {
         <div className='view-book'>
             <img src={info?.imgUrl} alt="img"  />
             <div  className='txt-frame'>
-                <h1>Name: {' '} {info?.name}</h1>
-                <p>Type: {' '} {info?.type}</p>
-                <p>Email: {' '} {info?.email}</p>
-                <p>Phone: {' '} {info?.phoneNumber}</p>
-                <p>Description: {' '} {info?.description}</p>
+                <h1><b>Name:</b> {' '} {info?.name}</h1>
+                <p><b>Type:</b> {' '} {info?.type}</p>
+                <p><b>Email:</b> {' '} {info?.email}</p>
+                <p><b>Phone:</b> {' '} {info?.phoneNumber}</p>
+                <p><b>Description: </b> {' '} {info?.description}</p>
                 <Button onClick={() => data.setIsOpenPassword(true)} variant="danger">Delete</Button>
             </div>
         </div>

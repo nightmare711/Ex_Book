@@ -44,7 +44,7 @@ export const AddBook = () => {
     
         reader.readAsDataURL(file)
       }
-      console.log(imagePreview)
+      
     return (
         <div className='add-product-container'>
             <div className='add-product'>
