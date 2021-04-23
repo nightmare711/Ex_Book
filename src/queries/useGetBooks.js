@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import { useQuery, useMutation } from 'react-query'
 import { DataContext } from '../context/Context'
 
@@ -39,5 +39,13 @@ export const useDeleteBook = () => {
         .catch(err => console.log(err))
     },{
         onSuccess: () => window.location.href = 'http://localhost:3000/'
+    })
+}
+export const useSearch = () => {
+    return useMutation((id) => {
+        return fetch('http://localhost:5000/books/'+ id, {
+            method: 'Sear'
+            
+        })
     })
 }
