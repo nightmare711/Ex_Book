@@ -5,6 +5,7 @@ import { HomePage, AddBook, ViewBook, UpdateBook } from './pages'
 import { Switch, Route } from 'react-router-dom'
 import { Loading } from './components'
 import { DataContext } from './context/Context'
+import {Footer} from './components'
 
 function App() {
   const [info, setInfo] = React.useState({
@@ -51,7 +52,7 @@ function App() {
     setIsOpenPassword(false)
   }
   
-  return (
+  return ( 
     <DataContext.Provider value={{
       isLoading,
       setIsLoading,
@@ -84,6 +85,7 @@ function App() {
         {info.name && info.description ? <ViewBook info={info} /> : null}
       </div>
     </DataContext.Provider>
+  
   );
 }
 
